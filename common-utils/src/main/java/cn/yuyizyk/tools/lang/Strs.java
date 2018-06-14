@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
 import java.sql.SQLException;
 import java.text.MessageFormat;
+import java.util.Base64;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
@@ -881,6 +882,26 @@ public class Strs extends StringUtils {
 		} else {
 			return cs1.equals(cs2);
 		}
+	}
+
+	/**
+	 * 将byte[]进行Base64编码->字符串
+	 * 
+	 * @param bytes
+	 * @return
+	 */
+	public static String encodeToString(byte[] bytes) {
+		return Base64.getEncoder().encodeToString(bytes);
+	}
+
+	/**
+	 * 解码Base64编码后的byte[]
+	 * 
+	 * @param encodeStr
+	 * @return
+	 */
+	public static byte[] decode(String encodeStr) {
+		return Base64.getDecoder().decode(encodeStr);
 	}
 
 }

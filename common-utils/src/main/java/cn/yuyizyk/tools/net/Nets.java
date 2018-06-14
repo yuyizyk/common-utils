@@ -16,6 +16,8 @@ import java.util.Collection;
 import java.util.Enumeration;
 import java.util.LinkedHashSet;
 
+import org.junit.Test;
+
 import cn.yuyizyk.tools.common.Assert;
 import cn.yuyizyk.tools.exception.Exceptions;
 import cn.yuyizyk.tools.lang.Arrs;

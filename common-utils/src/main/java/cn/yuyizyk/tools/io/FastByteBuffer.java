@@ -4,8 +4,6 @@ package cn.yuyizyk.tools.io;
  * 代码移植自<a href="https://github.com/biezhi/blade">blade</a><br>
  * 快速缓冲，将数据存放在缓冲集中，取代以往的单一数组
  *
- * @author biezhi, looly
- * @since 1.0
  */
 public class FastByteBuffer {
 
@@ -50,7 +48,8 @@ public class FastByteBuffer {
 	/**
 	 * 分配下一个缓冲区，不会小于1024
 	 * 
-	 * @param newSize 理想缓冲区字节数
+	 * @param newSize
+	 *            理想缓冲区字节数
 	 */
 	private void needNewBuffer(int newSize) {
 		int delta = newSize - size;
@@ -74,9 +73,12 @@ public class FastByteBuffer {
 	/**
 	 * 向快速缓冲加入数据
 	 * 
-	 * @param array 数据
-	 * @param off 偏移量
-	 * @param len 字节数
+	 * @param array
+	 *            数据
+	 * @param off
+	 *            偏移量
+	 * @param len
+	 *            字节数
 	 * @return 快速缓冲自身 @see FastByteBuffer
 	 */
 	public FastByteBuffer append(byte[] array, int off, int len) {
@@ -118,7 +120,8 @@ public class FastByteBuffer {
 	/**
 	 * 向快速缓冲加入数据
 	 * 
-	 * @param array 数据
+	 * @param array
+	 *            数据
 	 * 
 	 * @return 快速缓冲自身 @see FastByteBuffer
 	 */
@@ -129,7 +132,8 @@ public class FastByteBuffer {
 	/**
 	 * 向快速缓冲加入一个字节
 	 * 
-	 * @param element 一个字节的数据
+	 * @param element
+	 *            一个字节的数据
 	 * @return 快速缓冲自身 @see FastByteBuffer
 	 */
 	public FastByteBuffer append(byte element) {
@@ -147,7 +151,8 @@ public class FastByteBuffer {
 	/**
 	 * 将另一个快速缓冲加入到自身
 	 * 
-	 * @param buff 快速缓冲
+	 * @param buff
+	 *            快速缓冲
 	 * @return 快速缓冲自身 @see FastByteBuffer
 	 */
 	public FastByteBuffer append(FastByteBuffer buff) {
@@ -185,7 +190,8 @@ public class FastByteBuffer {
 	/**
 	 * 根据索引位返回缓冲集中的缓冲
 	 * 
-	 * @param index 索引位
+	 * @param index
+	 *            索引位
 	 * @return 缓冲
 	 */
 	public byte[] array(int index) {
@@ -227,8 +233,10 @@ public class FastByteBuffer {
 	/**
 	 * 返回快速缓冲中的数据
 	 * 
-	 * @param start 逻辑起始位置
-	 * @param len 逻辑字节长
+	 * @param start
+	 *            逻辑起始位置
+	 * @param len
+	 *            逻辑字节长
 	 * @return 快速缓冲中的数据
 	 */
 	public byte[] toArray(int start, int len) {
@@ -264,7 +272,8 @@ public class FastByteBuffer {
 	/**
 	 * 根据索引位返回一个字节
 	 * 
-	 * @param index 索引位
+	 * @param index
+	 *            索引位
 	 * @return 一个字节
 	 */
 	public byte get(int index) {

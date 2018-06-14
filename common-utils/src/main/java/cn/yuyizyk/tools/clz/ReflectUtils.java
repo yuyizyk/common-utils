@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.Set;
 import cn.yuyizyk.tools.common.Assert;
 import cn.yuyizyk.tools.common.SimpleCache;
 import cn.yuyizyk.tools.exception.Exceptions;
+import cn.yuyizyk.tools.lang.Arrs;
 import cn.yuyizyk.tools.lang.Objs;
 import cn.yuyizyk.tools.lang.Strs;
 
@@ -166,7 +168,7 @@ public class ReflectUtils {
 			if (null == allFields) {
 				allFields = declaredFields;
 			} else {
-				allFields = ArrayUtil.append(allFields, declaredFields);
+				allFields = Arrs.append(allFields, declaredFields);
 			}
 			searchType = withSuperClassFieds ? searchType.getSuperclass() : null;
 		}

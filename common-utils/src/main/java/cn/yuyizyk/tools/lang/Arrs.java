@@ -15,7 +15,6 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
 import cn.yuyizyk.tools.clz.ReflectUtils;
 import cn.yuyizyk.tools.common.Assert;
 import cn.yuyizyk.tools.model.EnumerationIterator;
@@ -484,4 +483,88 @@ public class Arrs {
 			}
 		});
 	}
+
+	/**
+	 * 追加元素
+	 * 
+	 * @param src
+	 *            原数组
+	 * @param appends
+	 *            追加元素...
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] append(T[] src, T... appends) {
+		if (Objs.isEmpty(appends))
+			return src;
+		int length = src.length + appends.length;
+		T[] temp = (T[]) Arrays.copyOf(src, length, src.getClass());
+		length = 0;
+		System.arraycopy(src, 0, temp, length, src.length);
+		length += appends.length;
+		System.arraycopy(appends, 0, temp, length, appends.length);
+		return src;
+	}
+
+	/**
+	 * 附加数组
+	 * 
+	 * @param src
+	 *            原数组
+	 * @param append1
+	 *            追加数组
+	 * @param appends
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] append(T[] src, T[] append1, T[]... appends) {
+		if (Objs.isEmpty(append1) && Objs.isEmpty(appends))
+			return src;
+		int length = src.length + append1.length;
+		for (T[] appen : appends)
+			length += appen.length;
+		T[] temp = (T[]) Arrays.copyOf(src, length, src.getClass());
+		length = 0;
+		System.arraycopy(src, 0, temp, length, src.length);
+		length += append1.length;
+		System.arraycopy(append1, 0, temp, length, append1.length);
+
+		for (T[] array : appends) {
+			if (array == null) {
+				continue;
+			}
+			System.arraycopy(array, 0, src, length, array.length);
+			length += array.length;
+		}
+		return src;
+	}
+
+	/**
+	 * 数组去重
+	 * 
+	 * @param arr
+	 * @return
+	 */
+	public static <T> T[] deduplication(T[] arr) {
+		Set<T> set = new HashSet<>();
+		for (T t : arr) {
+			set.add(t);
+		}
+		return set.toArray(arr);
+	}
+
+	/**
+	 * 数组去重
+	 * 
+	 * @param arr
+	 * @return
+	 */
+	public static <T> List<T> deduplication(List<T> arr) {
+		Set<T> set = new HashSet<>();
+		for (T t : arr) {
+			set.add(t);
+		}
+		return arr;
+	}
+
 }

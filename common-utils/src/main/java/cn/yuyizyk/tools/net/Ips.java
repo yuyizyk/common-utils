@@ -365,16 +365,16 @@ public class Ips {
 	 */
 	public static boolean isInnerIP(String ipAddress) {
 		boolean isInnerIp = false;
-		long ipNum = Ips.ipv4ToLong(ipAddress);
+		long ipNum = ipv4ToLong(ipAddress);
 
-		long aBegin = Ips.ipv4ToLong(IPV4_A_BEGIN);
-		long aEnd = Ips.ipv4ToLong(IPV4_A_END);
+		long aBegin = ipv4ToLong(IPV4_A_BEGIN);
+		long aEnd = ipv4ToLong(IPV4_A_END);
 
-		long bBegin = Ips.ipv4ToLong(IPV4_B_BEGIN);
-		long bEnd = Ips.ipv4ToLong(IPV4_B_END);
+		long bBegin = ipv4ToLong(IPV4_B_BEGIN);
+		long bEnd = ipv4ToLong(IPV4_B_END);
 
-		long cBegin = Ips.ipv4ToLong(IPV4_C_BEGIN);
-		long cEnd = Ips.ipv4ToLong(IPV4_C_END);
+		long cBegin = ipv4ToLong(IPV4_C_BEGIN);
+		long cEnd = ipv4ToLong(IPV4_C_END);
 
 		isInnerIp = isInner(ipNum, aBegin, aEnd) || isInner(ipNum, bBegin, bEnd) || isInner(ipNum, cBegin, cEnd)
 				|| ipAddress.equals(Nets.LOCAL_IP);
@@ -400,7 +400,6 @@ public class Ips {
 	 * @param port
 	 *            端口
 	 * @return {@link InetSocketAddress}
-	 * @since 3.3.0
 	 */
 	public static InetSocketAddress createAddress(String host, int port) {
 		return new InetSocketAddress(host, port);
